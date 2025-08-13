@@ -140,37 +140,16 @@ def create_layout_image(
     return canvas
 
 
-def generate_layout(selected_recipe_names: List[str], order_str: str):
+def generate_layout(selected_recipe_names: List[str]):
     """
-    Validates input, sorts recipes, generates layout data, and creates the layout image.
+    Validates input, generates layout data, and creates the layout image.
+    The order is determined by the user's selection order in the CheckboxGroup.
     """
     if not (1 <= len(selected_recipe_names) <= 4):
         raise gr.Error("Please select between 1 and 4 recipes.")
 
-    if not order_str:
-        raise gr.Error("Please enter the recipe order.")
-
-    try:
-        orders = [int(o.strip()) for o in order_str.split(",")]
-    except ValueError:
-        raise gr.Error("Order must be a comma-separated list of numbers (e.g., 1,3,2).")
-
-    if len(orders) != len(selected_recipe_names):
-        raise gr.Error(
-            f"The number of orders must match the number of selected recipes ({len(selected_recipe_names)})."
-        )
-
-    if len(set(orders)) != len(orders):
-        raise gr.Error("Please provide unique order numbers.")
-
-    num_recipes = len(selected_recipe_names)
-    if not all(1 <= o <= num_recipes for o in orders):
-        raise gr.Error(f"Order numbers must be between 1 and {num_recipes}.")
-
-    # Map order to recipe name
-    order_map = {orders[i]: selected_recipe_names[i] for i in range(num_recipes)}
-    sorted_recipe_names = [order_map[i] for i in sorted(order_map.keys())]
-    selected_recipes = [all_recipes[name] for name in sorted_recipe_names]
+    # The list from the CheckboxGroup is already ordered by selection.
+    selected_recipes = [all_recipes[name] for name in selected_recipe_names]
 
     # Generate positions
     cooker_positions = get_cookers_positions(selected_recipes)
@@ -185,6 +164,18 @@ def generate_layout(selected_recipe_names: List[str], order_str: str):
     return layout_image, cooker_positions, ingredient_positions, condiment_positions
 
 
+def update_gallery(selected_recipe_names: List[str]):
+    """Updates the gallery with images of the selected recipes in order."""
+    image_paths = []
+    for name in selected_recipe_names:
+        recipe = all_recipes.get(name)
+        if recipe:
+            img_path = IMAGE_DIR / f"{recipe.slug}.png"
+            if img_path.exists():
+                image_paths.append(str(img_path))
+    return image_paths
+
+
 # --- Gradio UI ---
 def create_ui():
     """Creates and launches the Gradio web interface."""
@@ -195,7 +186,7 @@ def create_ui():
         ) as lang:
             gr.Markdown("# Hawarma Preview")
             gr.Markdown(
-                "Select up to 4 recipes, assign a unique order number to each (e.g., 1, 2, 3, 4), and generate the cooking layout."
+                "Select up to 4 recipes. The order of selection will determine the layout."
             )
 
             with gr.Row():
@@ -203,10 +194,14 @@ def create_ui():
                     choices=[_(recipe_name) for recipe_name in recipe_names],
                     label="Select up to 4 Recipes",
                 )
-                order_input = gr.Textbox(
-                    label="Enter order (comma-separated)",
-                    placeholder="e.g., 2,1,4,3",
-                )
+
+            gr.Markdown("### Selection Order")
+            selection_gallery = gr.Gallery(
+                label="Ordered Selections",
+                columns=4,
+                height=200,
+                allow_preview=False,
+            )
 
             generate_button = gr.Button("Generate Layout", variant="primary")
 
@@ -224,9 +219,16 @@ def create_ui():
                     ingredient_output = gr.JSON(label="Ingredient Positions")
                     condiment_output = gr.JSON(label="Condiment Positions")
 
+            # Event handlers
+            recipe_selection.select(
+                fn=update_gallery,
+                inputs=[recipe_selection],
+                outputs=[selection_gallery],
+            )
+
             generate_button.click(
                 fn=generate_layout,
-                inputs=[recipe_selection, order_input],
+                inputs=[recipe_selection],
                 outputs=[
                     output_image,
                     cooker_output,
@@ -235,7 +237,7 @@ def create_ui():
                 ],
             )
 
-        return demo
+    return demo
 
 
 if __name__ == "__main__":
