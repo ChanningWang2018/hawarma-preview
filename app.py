@@ -78,9 +78,30 @@ def create_layout_image(
     cooker_pos: Dict[str, int],
     ingredient_pos: Dict[str, int],
     condiment_pos: Dict[str, int],
+    selected_recipes: List[Recipe],
 ) -> Image.Image:
     """Creates a composite image of the cooking layout."""
     canvas = Image.new("RGB", (CANVAS_WIDTH, CANVAS_HEIGHT), BACKGROUND_COLOR)
+
+    # --- Place Ordered Recipes (Top Center) ---
+    num_orders = len(selected_recipes)
+    order_total_width = num_orders * ICON_SIZE[0]
+    order_start_x = (CANVAS_WIDTH - order_total_width) // 2
+    order_y = 10  # A small padding from the top
+
+    for idx, recipe in enumerate(selected_recipes):
+        try:
+            img_path = IMAGE_DIR / f"order-{recipe.slug}.png"
+            if not img_path.exists():
+                # Fallback or just skip if not found
+                print(f"Warning: Order image for '{recipe.slug}' not found at {img_path}")
+                continue
+            icon = Image.open(img_path).resize(ICON_SIZE)
+            x = order_start_x + (idx * ICON_SIZE[0])
+            canvas.paste(icon, (x, order_y), icon if icon.mode == "RGBA" else None)
+        except FileNotFoundError:
+            print(f"Error loading order image for '{recipe.slug}'")
+
 
     # --- Place Cookers (Center) ---
     # Max 4 cookers, centered horizontally
@@ -158,7 +179,7 @@ def generate_layout(selected_recipe_names: List[str]):
 
     # Generate image
     layout_image = create_layout_image(
-        cooker_positions, ingredient_positions, condiment_positions
+        cooker_positions, ingredient_positions, condiment_positions, selected_recipes
     )
 
     return layout_image, cooker_positions, ingredient_positions, condiment_positions
