@@ -88,13 +88,18 @@ def create_layout_image(
     cooker_total_width = num_cookers * ICON_SIZE[0]
     cooker_start_x = (CANVAS_WIDTH - cooker_total_width) // 2
     cooker_y = (CANVAS_HEIGHT - ICON_SIZE[1]) // 2  # Centered vertically
-    for cooker, pos in sorted(cooker_pos.items(), key=lambda item: item[1]):
+
+    # Sort cookers by their original position value to maintain order
+    sorted_cookers = sorted(cooker_pos.items(), key=lambda item: item[1])
+
+    for idx, (cooker, _) in enumerate(sorted_cookers):  # Use enumerate for index
         try:
             img_path = IMAGE_DIR / f"{cooker}.png"
             if not img_path.exists():
                 img_path = IMAGE_DIR / f"{cooker}.jpg"  # try jpg
             icon = Image.open(img_path).resize(ICON_SIZE)
-            x = cooker_start_x + (pos * ICON_SIZE[0])
+            # Use the enumerated index 'idx' for correct positioning
+            x = cooker_start_x + (idx * ICON_SIZE[0])
             canvas.paste(icon, (x, cooker_y), icon if icon.mode == "RGBA" else None)
         except FileNotFoundError:
             print(f"Warning: Image for cooker '{cooker}' not found at {img_path}")
