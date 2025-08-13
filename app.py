@@ -5,6 +5,7 @@ import gradio as gr
 from pydantic import BaseModel, Field
 from typing import List, Dict
 from PIL import Image, ImageDraw
+from gradio_i18n import Translate, gettext as _
 
 # --- Constants ---
 IMAGE_DIR = Path("images")
@@ -13,9 +14,11 @@ CANVAS_WIDTH = 1024
 CANVAS_HEIGHT = 600
 BACKGROUND_COLOR = (240, 234, 214)  # A parchment-like color
 
+
 # --- Data Structures ---
 class Recipe(BaseModel):
     """Represents a single recipe with its ingredients and cookers."""
+
     slug: str
     name: str
     raw_ingredients: List[str] = Field(default_factory=list)
@@ -89,13 +92,12 @@ def create_layout_image(
         try:
             img_path = IMAGE_DIR / f"{cooker}.png"
             if not img_path.exists():
-                 img_path = IMAGE_DIR / f"{cooker}.jpg" # try jpg
+                img_path = IMAGE_DIR / f"{cooker}.jpg"  # try jpg
             icon = Image.open(img_path).resize(ICON_SIZE)
             x = cooker_start_x + (pos * ICON_SIZE[0])
-            canvas.paste(icon, (x, cooker_y), icon if icon.mode == 'RGBA' else None)
+            canvas.paste(icon, (x, cooker_y), icon if icon.mode == "RGBA" else None)
         except FileNotFoundError:
             print(f"Warning: Image for cooker '{cooker}' not found at {img_path}")
-
 
     # --- Place Ingredients (Left) ---
     # From bottom to top, left to right (max 2 per row)
@@ -108,10 +110,11 @@ def create_layout_image(
             col = pos % 2
             x = col * ICON_SIZE[0]
             y = ing_y_start - (row * ICON_SIZE[1])
-            canvas.paste(icon, (x, y), icon if icon.mode == 'RGBA' else None)
+            canvas.paste(icon, (x, y), icon if icon.mode == "RGBA" else None)
         except FileNotFoundError:
-            print(f"Warning: Image for ingredient '{ingredient}' not found at {img_path}")
-
+            print(
+                f"Warning: Image for ingredient '{ingredient}' not found at {img_path}"
+            )
 
     # --- Place Condiments (Right) ---
     # From bottom to top, left to right (max 2 per row)
@@ -125,7 +128,7 @@ def create_layout_image(
             col = pos % 2
             x = cond_x_start + (col * ICON_SIZE[0])
             y = cond_y_start - (row * ICON_SIZE[1])
-            canvas.paste(icon, (x, y), icon if icon.mode == 'RGBA' else None)
+            canvas.paste(icon, (x, y), icon if icon.mode == "RGBA" else None)
         except FileNotFoundError:
             print(f"Warning: Image for condiment '{condiment}' not found at {img_path}")
 
@@ -181,40 +184,53 @@ def generate_layout(selected_recipe_names: List[str], order_str: str):
 def create_ui():
     """Creates and launches the Gradio web interface."""
 
-    with gr.Blocks(title="Hawarma Preview", theme=gr.themes.Soft()) as demo:
-        gr.Markdown("# Hawarma Preview")
-        gr.Markdown(
-            "Select up to 4 recipes, assign a unique order number to each (e.g., 1, 2, 3, 4), and generate the cooking layout."
-        )
-
-        with gr.Row():
-            recipe_selection = gr.CheckboxGroup(
-                choices=recipe_names,
-                label="Select up to 4 Recipes",
-            )
-            order_input = gr.Textbox(
-                label="Enter order (comma-separated)",
-                placeholder="e.g., 2,1,4,3",
+    with gr.Blocks(title="Hawarma Preview") as demo:
+        with Translate(
+            "translation.yaml", placeholder_langs=["en", "zh", "ja"]
+        ) as lang:
+            gr.Markdown("# Hawarma Preview")
+            gr.Markdown(
+                "Select up to 4 recipes, assign a unique order number to each (e.g., 1, 2, 3, 4), and generate the cooking layout."
             )
 
-        generate_button = gr.Button("Generate Layout", variant="primary")
-
-        gr.Markdown("## Generated Layout")
-        output_image = gr.Image(label="Cooking Interface", type="pil", width=CANVAS_WIDTH, show_label=False)
-
-        with gr.Accordion("Show JSON Data", open=False):
             with gr.Row():
-                cooker_output = gr.JSON(label="Cooker Positions")
-                ingredient_output = gr.JSON(label="Ingredient Positions")
-                condiment_output = gr.JSON(label="Condiment Positions")
+                recipe_selection = gr.CheckboxGroup(
+                    choices=[_(recipe_name) for recipe_name in recipe_names],
+                    label="Select up to 4 Recipes",
+                )
+                order_input = gr.Textbox(
+                    label="Enter order (comma-separated)",
+                    placeholder="e.g., 2,1,4,3",
+                )
 
-        generate_button.click(
-            fn=generate_layout,
-            inputs=[recipe_selection, order_input],
-            outputs=[output_image, cooker_output, ingredient_output, condiment_output],
-        )
+            generate_button = gr.Button("Generate Layout", variant="primary")
 
-    return demo
+            gr.Markdown("## Generated Layout")
+            output_image = gr.Image(
+                label="Cooking Interface",
+                type="pil",
+                width=CANVAS_WIDTH,
+                show_label=False,
+            )
+
+            with gr.Accordion("Show JSON Data", open=False):
+                with gr.Row():
+                    cooker_output = gr.JSON(label="Cooker Positions")
+                    ingredient_output = gr.JSON(label="Ingredient Positions")
+                    condiment_output = gr.JSON(label="Condiment Positions")
+
+            generate_button.click(
+                fn=generate_layout,
+                inputs=[recipe_selection, order_input],
+                outputs=[
+                    output_image,
+                    cooker_output,
+                    ingredient_output,
+                    condiment_output,
+                ],
+            )
+
+        return demo
 
 
 if __name__ == "__main__":
