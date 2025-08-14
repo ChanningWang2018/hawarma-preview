@@ -211,13 +211,23 @@ def create_ui():
     """Creates and launches the Gradio web interface."""
 
     with gr.Blocks(title="Hawarma Preview", theme=gr.themes.Default()) as demo:
+        lang = gr.Radio(
+            choices=[
+                ("English", "en"),
+                ("简体中文", "zh"),
+                ("日本語", "ja"),
+            ],
+            label="Language",
+            render=False,  # You may define the choices ahead before passing to Translate blocks.
+        )
         with Translate(
-            "translation.yaml", placeholder_langs=["en", "zh", "ja"]
-        ) as lang:
+            "translation.yaml", lang=lang, placeholder_langs=["en", "zh", "ja"]
+        ):
             gr.Markdown("# Hawarma Preview")
             gr.Markdown(
                 "Select up to 4 recipes. The order of selection will determine the layout."
             )
+            lang.render()
 
             with gr.Row():
                 recipe_selection = gr.CheckboxGroup(
