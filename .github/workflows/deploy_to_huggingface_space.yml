@@ -12,15 +12,18 @@ jobs:
         with:
           fetch-depth: 0
           lfs: true
-          
-      - name: Set up Git LFS and track PNG files
+
+      - name: Set up Git LFS
         run: |
           git lfs install
           git lfs track "*.png"
           git add .gitattributes
-          git commit -m "Track PNG files with Git LFS" || echo "No changes to commit"
+          # Remove all tracked files and re-add them to ensure LFS tracking
+          git rm --cached -r .
+          git add .
+          git commit -m "Migrate images to Git LFS" || echo "No changes to commit"
 
-      - name: Push to Hugging Face Space
+      - name: Push to Hugging Face
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
