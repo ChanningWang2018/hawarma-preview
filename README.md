@@ -1,3 +1,15 @@
+---
+title: Hawarma Preview
+emoji: 👨🏻‍🍳
+colorFrom: indigo
+colorTo: green
+sdk: gradio
+sdk_version: 5.34.1
+app_file: app.py
+pinned: false
+license: apache-2.0
+---
+
 这是一个用于预览HPMA中的烹饪游戏的布局的应用，根据用户输入的食谱，输出烹饪界面的食材、厨具、调味品的布局。
 
 程序根据输入将输入的4个菜谱生成一个有序列表，输入相应的函数，得到食材、厨具、调味品的结果字典，键为物品名称，值为位置序号。这些数据被整理后作为结果被展示。
