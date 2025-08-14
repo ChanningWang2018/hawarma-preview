@@ -1,4 +1,5 @@
 en:
+  Language: Language
   Gilded Shore Risotto: Gilded Shore Risotto
   Farmstead Feast Roast: Farmstead Feast Roast
   Woodland Mushroom Risotto: Woodland Mushroom Risotto
@@ -11,31 +12,31 @@ en:
   Wild Herb Tomahawk: Wild Herb Tomahawk
   Deepwater Ink Pasta: Deepwater Ink Pasta
   Golden Cream Pasta: Golden Cream Pasta
-
 zh:
-  Gilded Shore Risotto: æµ·é±¼é»„é‡‘ç„—é¥­
-  Farmstead Feast Roast: æœé¦™çƒ¤ä¹³çŒª
-  Woodland Mushroom Risotto: å¥¶æ²¹è˜‘è‡ç‚–é¥­
-  Braised Venison Stew: çº¢é…’é¹¿è‚‰ç‚–æ±¤
-  Hearty Custard Pie: ç”œå¥¶æ²¹è›‹æ´¾
-  Paleleaf Meat Roll: å¹½å…°ç§˜åˆ¶è‚‰å·
-  Saltbaked Shrimp: ç›çƒ¤æµ·è™¾
-  Hearthroast Chicken: æµ“é¦™çƒ¤å…¨é¸¡
-  Simple Seared Scallops: é¦™è‰é£å‘³æ‰‡è´
-  Wild Herb Tomahawk: é¦™è‰æˆ˜æ–§ç‰›æ’
-  Deepwater Ink Pasta: å¢¨æ±æµ·é²œæ„é¢
-  Golden Cream Pasta: å¥¶æ²¹èŸ¹ç²‰é¢
-
+  Language: Language
+  Gilded Shore Risotto: º£Óã»Æ½ğŸh·¹
+  Farmstead Feast Roast: ¹ûÏã¿¾ÈéÖí
+  Woodland Mushroom Risotto: ÄÌÓÍÄ¢¹½ìÀ·¹
+  Braised Venison Stew: ºì¾ÆÂ¹ÈâìÀÌÀ
+  Hearty Custard Pie: ÌğÄÌÓÍµ°ÅÉ
+  Paleleaf Meat Roll: ÓÄÀ¼ÃØÖÆÈâ¾í
+  Saltbaked Shrimp: ÑÎ¿¾º£Ïº
+  Hearthroast Chicken: Å¨Ïã¿¾È«¼¦
+  Simple Seared Scallops: Ïã²İ·çÎ¶ÉÈ±´
+  Wild Herb Tomahawk: Ïã²İÕ½¸«Å£ÅÅ
+  Deepwater Ink Pasta: Ä«Ö­º£ÏÊÒâÃæ
+  Golden Cream Pasta: ÄÌÓÍĞ··ÛÃæ
 ja:
-  Gilded Shore Risotto: é­šä»‹ã®é»„é‡‘ãƒªã‚¾ãƒƒãƒˆ
-  Farmstead Feast Roast: ãƒ•ãƒ«ãƒ¼ãƒ„é¢¨å‘³ã®å­è±šã®ä¸¸ç„¼ã
-  Woodland Mushroom Risotto: ãã®ã“ã®ã‚¯ãƒªãƒ¼ãƒ ãƒªã‚¾ãƒƒãƒˆ
-  Braised Venison Stew: é¹¿è‚‰ã®èµ¤ãƒ¯ã‚¤ãƒ³ç…®è¾¼ã¿
-  Hearty Custard Pie: ã‚¹ã‚¤ãƒ¼ãƒˆã‚¯ãƒªãƒ¼ãƒ ã‚¨ãƒƒã‚°ãƒ‘ã‚¤
-  Paleleaf Meat Roll: è’¼è‘‰ã®ç‰¹è£½è‚‰ãƒ­ãƒ¼ãƒ«
-  Saltbaked Shrimp: æµ·è€ã®å¡©ç„¼ã
-  Hearthroast Chicken: é¦™ã‚Šè±Šã‹ãªãƒ­ãƒ¼ã‚¹ãƒˆãƒã‚­ãƒ³
-  Simple Seared Scallops: ãƒ›ã‚¿ãƒ†ã®ãƒãƒ¼ãƒ–ç„¼ã
-  Wild Herb Tomahawk: ãƒˆãƒãƒ›ãƒ¼ã‚¯ã‚¹ãƒ†ãƒ¼ã‚­ã®ãƒãƒ¼ãƒ–ç„¼ã
-  Deepwater Ink Pasta: ã‚¤ã‚«å¢¨ãƒ‘ã‚¹ã‚¿
-  Golden Cream Pasta: ã‚«ãƒ‹ã®ã‚¯ãƒªãƒ¼ãƒ ãƒ‘ã‚¹ã‚¿
+  Language: Language
+  Gilded Shore Risotto: ô~½é¤Î»Æ½ğ¥ê¥¾¥Ã¥È
+  Farmstead Feast Roast: ¥Õ¥ë©`¥ÄïLÎ¶¤Î×Óëà¤ÎÍèŸ†¤­
+  Woodland Mushroom Risotto: ¤­¤Î¤³¤Î¥¯¥ê©`¥à¥ê¥¾¥Ã¥È
+  Braised Venison Stew: Â¹Èâ¤Î³à¥ï¥¤¥óÖóŞz¤ß
+  Hearty Custard Pie: ¥¹¥¤©`¥È¥¯¥ê©`¥à¥¨¥Ã¥°¥Ñ¥¤
+  Paleleaf Meat Roll: ÉnÈ~¤ÎÌØÑuÈâ¥í©`¥ë
+  Saltbaked Shrimp: º£ÀÏ¤Î‰cŸ†¤­
+  Hearthroast Chicken: Ïã¤êØN¤«¤Ê¥í©`¥¹¥È¥Á¥­¥ó
+  Simple Seared Scallops: ¥Û¥¿¥Æ¤Î¥Ï©`¥ÖŸ†¤­
+  Wild Herb Tomahawk: ¥È¥Ş¥Û©`¥¯¥¹¥Æ©`¥­¤Î¥Ï©`¥ÖŸ†¤­
+  Deepwater Ink Pasta: ¥¤¥«Ä«¥Ñ¥¹¥¿
+  Golden Cream Pasta: ¥«¥Ë¤Î¥¯¥ê©`¥à¥Ñ¥¹¥¿
