@@ -209,7 +209,7 @@ def create_ui():
                 ("简体中文", "zh"),
                 ("日本語", "ja"),
             ],
-            label=_("Language"),
+            label="Language",
             render=False,  # You may define the choices ahead before passing to Translate blocks.
         )
         with Translate(
