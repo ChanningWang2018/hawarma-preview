@@ -210,7 +210,7 @@ def update_gallery(selected_recipe_names: List[str]):
 def create_ui():
     """Creates and launches the Gradio web interface."""
 
-    with gr.Blocks(title="Hawarma Preview") as demo:
+    with gr.Blocks(title="Hawarma Preview", theme=gr.themes.Default()) as demo:
         with Translate(
             "translation.yaml", placeholder_langs=["en", "zh", "ja"]
         ) as lang:
