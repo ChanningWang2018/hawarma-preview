@@ -1,11 +1,19 @@
 import itertools
 import json
+import subprocess
+import sys
 from pathlib import Path
+from typing import Dict, List
+
 import gradio as gr
+from PIL import Image
 from pydantic import BaseModel, Field
-from typing import List, Dict
-from PIL import Image, ImageDraw
-from gradio_i18n import Translate, gettext as _
+
+package_name = "gradio-i18n"
+
+subprocess.check_call([sys.executable, "-m", "pip", "install", package_name])
+from gradio_i18n import Translate
+from gradio_i18n import gettext as _
 
 # --- Constants ---
 IMAGE_DIR = Path("images")
@@ -94,14 +102,15 @@ def create_layout_image(
             img_path = IMAGE_DIR / f"order-{recipe.slug}.png"
             if not img_path.exists():
                 # Fallback or just skip if not found
-                print(f"Warning: Order image for '{recipe.slug}' not found at {img_path}")
+                print(
+                    f"Warning: Order image for '{recipe.slug}' not found at {img_path}"
+                )
                 continue
             icon = Image.open(img_path).resize(ICON_SIZE)
             x = order_start_x + (idx * ICON_SIZE[0])
             canvas.paste(icon, (x, order_y), icon if icon.mode == "RGBA" else None)
         except FileNotFoundError:
             print(f"Error loading order image for '{recipe.slug}'")
-
 
     # --- Place Cookers (Center) ---
     # Max 4 cookers, centered horizontally
