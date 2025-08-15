@@ -94,14 +94,15 @@ def create_layout_image(
             img_path = IMAGE_DIR / f"order-{recipe.slug}.png"
             if not img_path.exists():
                 # Fallback or just skip if not found
-                print(f"Warning: Order image for '{recipe.slug}' not found at {img_path}")
+                print(
+                    f"Warning: Order image for '{recipe.slug}' not found at {img_path}"
+                )
                 continue
             icon = Image.open(img_path).resize(ICON_SIZE)
             x = order_start_x + (idx * ICON_SIZE[0])
             canvas.paste(icon, (x, order_y), icon if icon.mode == "RGBA" else None)
         except FileNotFoundError:
             print(f"Error loading order image for '{recipe.slug}'")
-
 
     # --- Place Cookers (Center) ---
     # Max 4 cookers, centered horizontally
@@ -201,14 +202,27 @@ def update_gallery(selected_recipe_names: List[str]):
 def create_ui():
     """Creates and launches the Gradio web interface."""
 
-    with gr.Blocks(title="Hawarma Preview") as demo:
+    with gr.Blocks(title="Hawarma Preview", theme=gr.themes.Default()) as demo:
+        lang = gr.Radio(
+            choices=[
+                ("English", "en"),
+                ("简体中文", "zh"),
+                ("日本語", "ja"),
+            ],
+            label="Language",
+            render=False,  # You may define the choices ahead before passing to Translate blocks.
+        )
         with Translate(
-            "translation.yaml", placeholder_langs=["en", "zh", "ja"]
-        ) as lang:
+            translation="translation.yaml",
+            lang=lang,
+            placeholder_langs=["en", "zh", "ja"],
+        ):
             gr.Markdown("# Hawarma Preview")
             gr.Markdown(
                 "Select up to 4 recipes. The order of selection will determine the layout."
             )
+
+            lang.render()
 
             with gr.Row():
                 recipe_selection = gr.CheckboxGroup(
