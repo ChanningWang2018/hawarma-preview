@@ -3,6 +3,7 @@ title: Hawarma Preview
 emoji: 👨🏻‍🍳
 colorFrom: indigo
 colorTo: green
+python_version: 3.11
 sdk: gradio
 sdk_version: 5.34.1
 app_file: app.py
