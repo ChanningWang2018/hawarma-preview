@@ -1,0 +1,43 @@
+cookers: ["grill", "oven", "skillet", "pot"]
+
+recipes:
+  - gilded_shore_risotto
+  - farmstead_feast_roast
+  - woodland_mushroom_risotto
+  - braised_venison_stew
+  - hearty_custard_pie
+  - paleleaf_meat_roll
+  - saltbaked_shrimp
+  - hearthroast_chicken
+  - simple_seared_scallops
+  - wild_herb_tomahawk
+  - deepwater_ink_pasta
+  - golden_cream_pasta
+
+ingredients:
+  - hearthspice
+  - acacia_honey
+  - midsummer_onion
+  - sunkissed_lemon
+  - fleur_de_sel
+  - buttermilk_cream
+  - elderberry_liqueur
+  - pliant_pasta
+  - creamfield_rice
+  - clearwater_fish
+  - prime_cut_beef
+  - farmstead_pork
+  - whiteshore_scallop
+  - wild_mushroom
+  - roasting_chicken
+  - golden_crab_roe
+  - succulent_cut
+  - shoreline_shrimp
+  - forest_venison
+  - blanquette_fig
+  - hearty_egg
+  - deepwater_tentacle
+  - vining_marjoram
+  - paleleaf_laurel
+
+
