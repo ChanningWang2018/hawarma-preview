@@ -416,6 +416,9 @@ def create_ui():
                 inputs=[station_selection],
                 outputs=[station_state],
             ).then(
+                fn=lambda: None,
+                queue=False,
+            ).then(
                 fn=handle_lang_change,
                 inputs=[station_selection],
                 outputs=[recipe_selection],
