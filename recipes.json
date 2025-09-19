@@ -2,6 +2,7 @@
   {
     "slug": "gilded_shore_risotto",
     "name": "Gilded Shore Risotto",
+    "station": "gastronome",
     "raw_ingredients": ["clearwater_fish", "creamfield_rice"],
     "cookers": ["oven", "pot"],
     "cookers_layout": ["oven", "pot"],
@@ -11,6 +12,7 @@
   {
     "slug": "farmstead_feast_roast",
     "name": "Farmstead Feast Roast",
+    "station": "gastronome",
     "raw_ingredients": ["farmstead_pork"],
     "cookers": ["oven"],
     "cookers_layout": ["oven"],
@@ -20,6 +22,7 @@
   {
     "slug": "woodland_mushroom_risotto",
     "name": "Woodland Mushroom Risotto",
+    "station": "gastronome",
     "raw_ingredients": ["wild_mushroom", "creamfield_rice"],
     "cookers": ["skillet", "pot"],
     "cookers_layout": ["skillet", "pot"],
@@ -29,6 +32,7 @@
   {
     "slug": "braised_venison_stew",
     "name": "Braised Venison Stew",
+    "station": "gastronome",
     "raw_ingredients": ["forest_venison", "blanquette_fig"],
     "cookers": ["pot", "skillet"],
     "cookers_layout": ["skillet", "pot"],
@@ -38,6 +42,7 @@
   {
     "slug": "hearty_custard_pie",
     "name": "Hearty Custard Pie",
+    "station": "gastronome",
     "raw_ingredients": ["hearty_egg"],
     "cookers": ["oven"],
     "cookers_layout": ["oven"],
@@ -47,6 +52,7 @@
   {
     "slug": "paleleaf_meat_roll",
     "name": "Paleleaf Meat Roll",
+    "station": "gastronome",
     "raw_ingredients": ["succulent_cut", "blanquette_fig"],
     "cookers": ["grill", "skillet"],
     "cookers_layout": ["grill", "skillet"],
@@ -56,6 +62,7 @@
   {
     "slug": "saltbaked_shrimp",
     "name": "Saltbaked Shrimp",
+    "station": "gastronome",
     "raw_ingredients": ["shoreline_shrimp"],
     "cookers": ["grill"],
     "cookers_layout": ["grill"],
@@ -63,8 +70,19 @@
     "condiments": ["sunkissed_lemon", "fleur_de_sel"]
   },
   {
+    "slug": "dome_figue_miel",
+    "name": "Dome Figue Miel",
+    "station": "dessert",
+    "raw_ingredients": ["blanquette_fig", "sparkling_sugar"],
+    "cookers": ["dessert_oven"],
+    "cookers_layout": ["dessert_oven"],
+    "cook_durations": [3.0],
+    "condiments": ["acacia_honey", "elderberry_liqueur"]
+  },
+  {
     "slug": "hearthroast_chicken",
     "name": "Hearthroast Chicken",
+    "station": "gastronome",
     "raw_ingredients": ["roasting_chicken"],
     "cookers": ["oven"],
     "cookers_layout": ["oven"],
@@ -74,6 +92,7 @@
   {
     "slug": "simple_seared_scallops",
     "name": "Simple Seared Scallops",
+    "station": "gastronome",
     "raw_ingredients": ["whiteshore_scallop", "vining_marjoram"],
     "cookers": ["grill", "grill"],
     "cookers_layout": ["grill"],
@@ -83,6 +102,7 @@
   {
     "slug": "wild_herb_tomahawk",
     "name": "Wild Herb Tomahawk",
+    "station": "gastronome",
     "raw_ingredients": ["prime_cut_beef", "vining_marjoram"],
     "cookers": ["skillet", "grill"],
     "cookers_layout": ["grill", "skillet"],
@@ -90,8 +110,49 @@
     "condiments": ["hearthspice", "fleur_de_sel"]
   },
   {
+    "slug": "honey_glazed_wings",
+    "name": "Honey-Glazed Wings",
+    "station": "gastronome",
+    "raw_ingredients": ["plump_wing"],
+    "cookers": ["grill"],
+    "cookers_layout": ["grill"],
+    "cook_durations": [4.0],
+    "condiments": ["granulated_sugar", "acacia_honey"]
+  },
+  {
+    "slug": "velvet_tiramisu",
+    "name": "Velvet Tiramisu",
+    "station": "dessert",
+    "raw_ingredients": ["hearty_egg", "roasted_cocoa"],
+    "cookers": ["dessert_oven"],
+    "cookers_layout": ["dessert_oven"],
+    "cook_durations": [3.0],
+    "condiments": ["buttermilk_cream", "sunkissed_lemon"]
+  },
+  {
+    "slug": "cocoa_berry_bliss",
+    "name": "Cocoa-Berry Bliss",
+    "station": "dessert",
+    "raw_ingredients": ["brambleberry", "roasted_cocoa"],
+    "cookers": ["cooling_plate"],
+    "cookers_layout": ["cooling_plate"],
+    "cook_durations": [4.0],
+    "condiments": ["granulated_sugar", "buttermilk_cream"]
+  },
+  {
+    "slug": "midsummer_lamb_roast",
+    "name": "Midsummer Lamb Roast",
+    "station": "gastronome",
+    "raw_ingredients": ["tender_lamb"],
+    "cookers": ["oven"],
+    "cookers_layout": ["oven"],
+    "cook_durations": [4.0],
+    "condiments": ["acacia_honey", "hearthspice"]
+  },
+  {
     "slug": "deepwater_ink_pasta",
     "name": "Deepwater Ink Pasta",
+    "station": "gastronome",
     "raw_ingredients": ["deepwater_tentacle", "pliant_pasta"],
     "cookers": ["oven", "pot"],
     "cookers_layout": ["oven", "pot"],
@@ -101,10 +162,81 @@
   {
     "slug": "golden_cream_pasta",
     "name": "Golden Cream Pasta",
+    "station": "gastronome",
     "raw_ingredients": ["golden_crab_roe", "pliant_pasta"],
     "cookers": ["skillet", "pot"],
     "cookers_layout": ["skillet", "pot"],
     "cook_durations": [3.0, 3.0],
     "condiments": ["buttermilk_cream", "acacia_honey"]
+  },
+  {
+    "slug": "wildbloom_salad",
+    "name": "Wildbloom Salad",
+    "station": "dessert",
+    "raw_ingredients": ["blanquette_fig", "wildbloom_thyme"],
+    "cookers": ["cooling_plate"],
+    "cookers_layout": ["cooling_plate"],
+    "cook_durations": [4.0],
+    "condiments": ["granulated_sugar", "sunkissed_lemon"]
+  },
+  {
+    "slug": "charred_mystery_steak",
+    "name": "Charred Mystery Steak",
+    "station": "gastronome",
+    "raw_ingredients": ["mystery_meat", "charred_cinnamon_tree"],
+    "cookers": ["skillet", "grill"],
+    "cookers_layout": ["grill", "skillet"],
+    "cook_durations": [3.0, 3.0],
+    "condiments": ["fleur_de_sel", "hearthspice"]
+  },
+  {
+    "slug": "cinnamon_seared_foie_gras",
+    "name": "Cinnamon-Seared Foie Gras",
+    "station": "gastronome",
+    "raw_ingredients": ["foie_gras", "charred_cinnamon_tree"],
+    "cookers": ["skillet", "pot"],
+    "cookers_layout": ["skillet", "pot"],
+    "cook_durations": [3.0, 3.0],
+    "condiments": ["midsummer_onion", "sunkissed_lemon"]
+  },
+  {
+    "slug": "feast_of_courage_and_chivalry",
+    "name": "Feast of Courage and Chivalry",
+    "station": "gastronome",
+    "raw_ingredients": ["scorched_sunchaser_paw", "prime_cut_beef"],
+    "cookers": ["skillet", "pot"],
+    "cookers_layout": ["skillet", "pot"],
+    "cook_durations": [3.0, 3.0],
+    "condiments": ["sunkissed_lemon", "fleur_de_sel"]
+  },
+  {
+    "slug": "feast_of_cunning_and_ambition",
+    "name": "Feast of Cunning and Ambition",
+    "station": "gastronome",
+    "raw_ingredients": ["coiled_gold_brew", "hearty_egg"],
+    "cookers": ["grill", "pot"],
+    "cookers_layout": ["grill", "pot"],
+    "cook_durations": [3.0, 3.0],
+    "condiments": ["buttermilk_cream", "midsummer_onion"]
+  },
+  {
+    "slug": "feast_of_loyalty_and_dedication",
+    "name": "Feast of Loyalty and Dedication",
+    "station": "gastronome",
+    "raw_ingredients": ["hearty_harvest_gravy", "clearwater_fish"],
+    "cookers": ["pot", "skillet"],
+    "cookers_layout": ["skillet", "pot"],
+    "cook_durations": [3.0, 3.0],
+    "condiments": ["sunkissed_lemon", "elderberry_liqueur"]
+  },
+  {
+    "slug": "feast_of_wisdom_and_wit",
+    "name": "Feast of Wisdom and Wit",
+    "station": "dessert",
+    "raw_ingredients": ["curious_sapphire_gelee", "sparkling_sugar"],
+    "cookers": ["dessert_oven"],
+    "cookers_layout": ["dessert_oven"],
+    "cook_durations": [3.0],
+    "condiments": ["sunkissed_lemon", "elderberry_liqueur"]
   }
 ]
