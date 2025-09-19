@@ -1,20 +1,20 @@
 ---
-# 详细文档见https://modelscope.cn/docs/%E5%88%9B%E7%A9%BA%E9%97%B4%E5%8D%A1%E7%89%87
-domain: #领域：cv/nlp/audio/multi-modal/AutoML
+# For detailed documentation, see https://modelscope.cn/docs/%E5%88%9B%E7%A9%BA%E9%97%B4%E5%8D%A1%E7%89%87
+domain: # Domain: cv/nlp/audio/multi-modal/AutoML
 # - cv
-tags: #自定义标签
+tags: # Custom tags
 -
-datasets: #关联数据集
+datasets: # Associated datasets
   evaluation:
   #- iic/ICDAR13_HCTR_Dataset
   test:
   #- iic/MTWI
   train:
   #- iic/SIBR
-models: #关联模型
+models: # Associated models
 #- iic/ofa_ocr-recognition_general_base_zh
 
-## 启动文件(若SDK为Gradio/Streamlit，默认为app.py, 若为Static HTML, 默认为index.html)
+## Startup file (If SDK is Gradio/Streamlit, default is app.py, if Static HTML, default is index.html)
 deployspec:
   entry_file: app.py
 license: Apache License 2.0
@@ -25,9 +25,18 @@ license: Apache License 2.0
 ```
 
 
-这是一个用于预览HPMA(Harry Potter: Magic Awakened)中的烹饪游戏的布局的应用，根据用户输入的食谱，输出烹饪界面的食材、厨具、调味品的布局。
+This is an application for previewing the cooking game layout in HPMA (Harry Potter: Magic Awakened). Based on user input recipes, it outputs the layout of ingredients, cookers, and condiments for the cooking interface.
 
-程序根据输入将输入的4个菜谱生成一个有序列表，输入相应的函数，得到食材、厨具、调味品的结果字典，键为物品名称，值为位置序号。这些数据被整理后作为结果被展示。
+The program generates an ordered list from the 4 input recipes, passes them to corresponding functions, and gets result dictionaries for ingredients, cookers, and condiments, where keys are item names and values are position numbers. This data is organized and displayed as the result.
 
-结果用两种形式展示，一种是json（以实现），另一种是图片组合（模拟真实界面）：左侧是ingredients栏，顺序为从左到右，从下到上排列，每行最多2个元素；中间是cooker栏，从左到右排列，最多4个元素；右侧是condiments栏，顺序为从左到右，从下到上排列，每行最多2个元素。每个元素是images目录下对应名称的一张png图片。
-Ingredients will be on the left (2/row, bottom-to-top), cookware in the center (max 4, left-to-right), and condiments on the right (2/row, bottom-to-top), with all images sourced  from the images/ directory.
+The results are displayed in two forms: one is JSON, and the other is a combined image (simulating the actual interface):
+- On the left is the ingredients bar, where ingredients are arranged from left to right, bottom to top, with the order being the reverse of the selected recipe order (FILO), with a maximum of 2 elements per row;
+- In the middle is the cookers bar, arranged from left to right, with a maximum of 4 elements;
+- On the right is the condiments bar, where condiments are arranged from left to right, bottom to top, with the order being the same as the selected recipe order (FIFO), with a maximum of 2 elements per row. Each element is a PNG image with the corresponding name from the images directory.
+
+If you need to add new recipes, you need to modify three parts:
+- recipes.json: Add new recipe information
+- translation.yaml: Add new recipe name translations
+- images/: Add PNG files with the same name as the new recipe slug for recipe selection (355x355 or 395x395), add files named "order-{recipe.slug}.png" for result display (275x255). If there are new ingredients, add PNG files with the same name (107x107), which need to correspond to the names in recipes.json. If there are new cookers, add PNG files with the same name, which need to correspond to the names in recipes.json.
+
+If you modify the data structure of recipes.json, you also need to modify the corresponding parts of the Recipe class in app.py.

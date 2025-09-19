@@ -11,7 +11,13 @@ from pydantic import BaseModel, Field
 
 package_name = "gradio-i18n"
 
-subprocess.check_call([sys.executable, "-m", "pip", "install", package_name])
+subprocess.check_call([
+    sys.executable,
+    "-m",
+    "pip",
+    "install",
+    package_name,
+])  # Uncomment if gradio-i18n is not installed in modelscope studio
 from gradio_i18n import Translate
 from gradio_i18n import gettext as _
 
@@ -21,6 +27,7 @@ ICON_SIZE = (128, 128)
 CANVAS_WIDTH = 1024
 CANVAS_HEIGHT = 600
 BACKGROUND_COLOR = (240, 234, 214)  # A parchment-like color
+DESSERT_BACKGROUND_COLOR = (214, 234, 240)
 
 
 # --- Data Structures ---
@@ -29,6 +36,7 @@ class Recipe(BaseModel):
 
     slug: str
     name: str
+    station: str
     raw_ingredients: List[str] = Field(default_factory=list)
     cookers: List[str] = Field(default_factory=list)
     cookers_layout: List[str] = Field(default_factory=list)
@@ -41,7 +49,7 @@ def load_recipes() -> Dict[str, Recipe]:
     """Loads recipes from the JSON file."""
     with open("recipes.json", "r", encoding="utf-8") as f:
         recipes_data = json.load(f)
-    return {recipe["name"]: Recipe(**recipe) for recipe in recipes_data}
+    return {recipe["slug"]: Recipe(**recipe) for recipe in recipes_data}
 
 
 all_recipes = load_recipes()
@@ -89,7 +97,13 @@ def create_layout_image(
     selected_recipes: List[Recipe],
 ) -> Image.Image:
     """Creates a composite image of the cooking layout."""
-    canvas = Image.new("RGB", (CANVAS_WIDTH, CANVAS_HEIGHT), BACKGROUND_COLOR)
+    # Determine background color based on recipe type
+    if all(recipe.station == "dessert" for recipe in selected_recipes):
+        background_color = DESSERT_BACKGROUND_COLOR
+    else:
+        background_color = BACKGROUND_COLOR
+
+    canvas = Image.new("RGB", (CANVAS_WIDTH, CANVAS_HEIGHT), background_color)
 
     # --- Place Ordered Recipes (Top Center) ---
     num_orders = len(selected_recipes)
@@ -194,11 +208,11 @@ def generate_layout(selected_recipe_names: List[str]):
     return layout_image, cooker_positions, ingredient_positions, condiment_positions
 
 
-def update_gallery(selected_recipe_names: List[str]):
+def update_gallery(selected_recipe_slugs: List[str]):
     """Updates the gallery with images of the selected recipes in order."""
     image_paths = []
-    for name in selected_recipe_names:
-        recipe = all_recipes.get(name)
+    for slug in selected_recipe_slugs:
+        recipe = all_recipes.get(slug)
         if recipe:
             img_path = IMAGE_DIR / f"{recipe.slug}.png"
             if img_path.exists():
@@ -207,6 +221,31 @@ def update_gallery(selected_recipe_names: List[str]):
 
 
 # --- Gradio UI ---
+def filter_recipes_by_station(station: str) -> list[Recipe]:
+    """Filter recipes by station type and return their names."""
+    return [recipe for recipe in all_recipes.values() if recipe.station == station]
+
+
+def handle_station_change(station: str):
+    """Update recipe choices based on selected station and optionally clear selections."""
+    filtered_recipes = filter_recipes_by_station(station)
+    return [
+        gr.CheckboxGroup(
+            choices=[(_(recipe.name), recipe.slug) for recipe in filtered_recipes],
+            value=[],
+        ),
+        gr.Gallery(value=[]),
+    ]
+
+
+def handle_lang_change(station):
+    # Update dynamic components based on language change
+    filtered_recipes = filter_recipes_by_station(station)
+    return gr.update(
+        choices=[(_(recipe.name), recipe.slug) for recipe in filtered_recipes],
+    )
+
+
 def create_ui():
     """Creates and launches the Gradio web interface."""
 
@@ -218,20 +257,31 @@ def create_ui():
                 ("日本語", "ja"),
             ],
             label="Language",
+            info="Please select your preferred language first and don't change it during use😂",
             render=False,  # You may define the choices ahead before passing to Translate blocks.
         )
-        with Translate(
-            "translation.yaml", lang=lang, placeholder_langs=["en", "zh", "ja"]
-        ):
+        with Translate("translation.yaml", lang=lang):
             gr.Markdown("# Hawarma Preview")
             gr.Markdown(
                 "Select up to 4 recipes. The order of selection will determine the layout."
             )
             lang.render()
 
+            station_selection = gr.Radio(
+                choices=[
+                    (_("Gastronome's Station"), "gastronome"),
+                    (_("Dessert Station"), "dessert"),
+                ],
+                value="gastronome",
+                label="Select Recipe Type",
+            )
+
             with gr.Row():
                 recipe_selection = gr.CheckboxGroup(
-                    choices=[_(recipe_name) for recipe_name in recipe_names],
+                    choices=[
+                        (_(recipe.name), recipe.slug)
+                        for recipe in filter_recipes_by_station("gastronome")
+                    ],
                     label="Select up to 4 Recipes",
                 )
 
@@ -260,6 +310,18 @@ def create_ui():
                     condiment_output = gr.JSON(label="Condiment Positions")
 
             # Event handlers
+            lang.change(
+                fn=handle_lang_change,
+                inputs=[station_selection],
+                outputs=[recipe_selection],
+            )
+
+            station_selection.change(
+                fn=handle_station_change,
+                inputs=[station_selection],
+                outputs=[recipe_selection, selection_gallery],
+            )
+
             recipe_selection.select(
                 fn=update_gallery,
                 inputs=[recipe_selection],
