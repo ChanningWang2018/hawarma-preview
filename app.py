@@ -105,6 +105,50 @@ def get_condiments_positions(recipes: List[Recipe]) -> Dict[str, int]:
     return {condiment: idx for idx, condiment in enumerate(condiments)}
 
 
+def add_cooker_icons_to_ingredient_image(
+    base_image: Image.Image, additional_cookers: List[str]
+) -> Image.Image:
+    """Add additional cooker icons to an ingredient image."""
+    if not additional_cookers:
+        return base_image
+
+    # Create a copy of the base image
+    result_image = base_image.copy()
+
+    # Icon size is 1/3 of the base image size
+    icon_size = (int(base_image.width * 0.3), int(base_image.height * 0.3))
+
+    # Define positions for additional icons (clockwise from top-right)
+    positions = [
+        (base_image.width - icon_size[0] - 0, 0),  # Top-right
+        (
+            base_image.width - icon_size[0] - 0,
+            base_image.height - icon_size[1] - 0,
+        ),  # Bottom-right
+        (0, base_image.height - icon_size[1] - 0),  # Bottom-left
+    ]
+
+    # Add each additional cooker icon
+    for i, cooker in enumerate(additional_cookers):
+        if i >= len(positions):
+            break  # Safety check in case we have more icons than positions
+
+        try:
+            icon_path = IMAGE_DIR / f"icon-{cooker}.png"
+            if icon_path.exists():
+                icon = Image.open(icon_path).resize(icon_size)
+                # Paste the icon with transparency
+                result_image.paste(
+                    icon, positions[i], icon if icon.mode == "RGBA" else None
+                )
+            else:
+                print(f"Warning: Icon for cooker '{cooker}' not found at {icon_path}")
+        except FileNotFoundError:
+            print(f"Error loading icon for cooker '{cooker}'")
+
+    return result_image
+
+
 def create_layout_image(
     cooker_pos: Dict[str, int],
     ingredient_pos: Dict[str, int],
@@ -164,6 +208,16 @@ def create_layout_image(
     # --- Place Ingredients (Left) ---
     # From bottom to top, left to right (max 2 per row)
     ing_y_start = CANVAS_HEIGHT - ICON_SIZE[1]
+
+    # Create a mapping of ingredients to their required cookers
+    ingredient_cookers = {}
+    for recipe in selected_recipes:
+        for ingredient, cooker in zip(recipe.raw_ingredients, recipe.cookers):
+            if ingredient not in ingredient_cookers:
+                ingredient_cookers[ingredient] = [cooker]
+            elif cooker not in ingredient_cookers[ingredient]:
+                ingredient_cookers[ingredient].append(cooker)
+
     for ingredient, pos in sorted(ingredient_pos.items(), key=lambda item: item[1]):
         img_path = None
         icon = None
@@ -181,6 +235,17 @@ def create_layout_image(
 
         try:
             icon = Image.open(img_path).resize(ICON_SIZE)
+
+            # Check if this ingredient needs multiple cookers
+            if (
+                ingredient in ingredient_cookers
+                and len(ingredient_cookers[ingredient]) > 1
+            ):
+                # Get all cookers except the first one (since it's already shown in the image)
+                additional_cookers = ingredient_cookers[ingredient][1:]
+                # Add additional cooker icons to the ingredient image
+                icon = add_cooker_icons_to_ingredient_image(icon, additional_cookers)
+
             row = pos // 2
             col = pos % 2
             x = col * ICON_SIZE[0]
