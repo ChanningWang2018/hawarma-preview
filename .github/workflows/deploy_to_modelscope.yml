@@ -12,16 +12,12 @@ jobs:
         with:
           fetch-depth: 0
           lfs: true
+          
       - name: Setup Git LFS
         run: |
           git lfs install
           git lfs fetch
           git lfs checkout
-          
-      - name: Configure Git LFS for ModelScope
-        run: |
-          git config lfs.https://modelscope.cn/studios/OhMyDearAI/hawarma-preview.git/info/lfs.locksverify true
-          git config lfs.allowincompletepush true
           
       - name: Push to ModelScope Studio
         env:
