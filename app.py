@@ -329,6 +329,15 @@ def handle_station_change(station: str):
     ]
 
 
+def cache_station_on_lang_change(station):
+    # Update dynamic components based on language change
+    # filtered_recipes = filter_recipes_by_station(station)
+    return gr.State("station")
+    # return gr.update(
+    #     choices=[(_(recipe.name), recipe.slug) for recipe in filtered_recipes],
+    # )
+
+
 def handle_lang_change(station):
     # Update dynamic components based on language change
     filtered_recipes = filter_recipes_by_station(station)
@@ -358,6 +367,7 @@ def create_ui():
             )
             lang.render()
 
+            station_state = gr.State()
             station_selection = gr.Radio(
                 choices=[
                     (_("Gastronome's Station"), "gastronome"),
@@ -402,6 +412,10 @@ def create_ui():
 
             # Event handlers
             lang.change(
+                fn=cache_station_on_lang_change,
+                inputs=[station_selection],
+                outputs=[station_state],
+            ).then(
                 fn=handle_lang_change,
                 inputs=[station_selection],
                 outputs=[recipe_selection],
