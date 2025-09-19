@@ -128,7 +128,7 @@ def create_layout_image(
 
     for idx, recipe in enumerate(selected_recipes):
         try:
-            img_path = IMAGE_DIR / f"order-{recipe.slug}.png"
+            img_path = IMAGE_DIR / f"{recipe.slug}/order-{recipe.slug}.png"
             if not img_path.exists():
                 # Fallback or just skip if not found
                 print(
@@ -151,11 +151,9 @@ def create_layout_image(
     # Sort cookers by their original position value to maintain order
     sorted_cookers = sorted(cooker_pos.items(), key=lambda item: item[1])
 
-    for idx, (cooker, _) in enumerate(sorted_cookers):  # Use enumerate for index
+    for idx, (cooker, _order) in enumerate(sorted_cookers):  # Use enumerate for index
         try:
             img_path = IMAGE_DIR / f"{cooker}.png"
-            if not img_path.exists():
-                img_path = IMAGE_DIR / f"{cooker}.jpg"  # try jpg
             icon = Image.open(img_path).resize(ICON_SIZE)
             # Use the enumerated index 'idx' for correct positioning
             x = cooker_start_x + (idx * ICON_SIZE[0])
@@ -167,8 +165,21 @@ def create_layout_image(
     # From bottom to top, left to right (max 2 per row)
     ing_y_start = CANVAS_HEIGHT - ICON_SIZE[1]
     for ingredient, pos in sorted(ingredient_pos.items(), key=lambda item: item[1]):
-        try:
+        img_path = None
+        icon = None
+
+        # Try to find recipe-specific ingredient image first
+        for recipe in selected_recipes:
+            recipe_img_path = IMAGE_DIR / recipe.slug / f"{ingredient}.png"
+            if recipe_img_path.exists():
+                img_path = recipe_img_path
+                break
+
+        # If no recipe-specific image found, try general image
+        if img_path is None:
             img_path = IMAGE_DIR / f"{ingredient}.png"
+
+        try:
             icon = Image.open(img_path).resize(ICON_SIZE)
             row = pos // 2
             col = pos % 2
@@ -264,7 +275,7 @@ def handle_lang_change(station):
 def create_ui():
     """Creates and launches the Gradio web interface."""
 
-    with gr.Blocks(title="Hawarma Preview", theme=gr.themes.Default()) as demo:
+    with gr.Blocks(title="Hawarma Preview") as demo:
         lang = gr.Radio(
             choices=[
                 ("English", "en"),
