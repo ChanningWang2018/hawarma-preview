@@ -37,6 +37,7 @@ The results are displayed in two forms: one is JSON, and the other is a combined
 If you need to add new recipes, you need to modify three parts:
 - recipes.json: Add new recipe information
 - translation.yaml: Add new recipe name translations
-- images/: Add PNG files with the same name as the new recipe slug for recipe selection (355x355 or 395x395), add files named "order-{recipe.slug}.png" for result display (275x255). If there are new ingredients, add PNG files with the same name (107x107), which need to correspond to the names in recipes.json. If there are new cookers, add PNG files with the same name, which need to correspond to the names in recipes.json.
+- images/: 创建一个recipe.slug的同名目录，目录下Add PNG files with the same name as the new recipe slug for recipe selection (355x355 or 395x395), add files named "order-{recipe.slug}.png" for result display (275x255). If there are new ingredients, add PNG files with the same name (107x107), which need to correspond to the names in recipes.json. 
+新cookers和新condiments直接存放在images/目录下，方便复用。
 
 If you modify the data structure of recipes.json, you also need to modify the corresponding parts of the Recipe class in app.py.
