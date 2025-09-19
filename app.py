@@ -11,13 +11,21 @@ from pydantic import BaseModel, Field
 
 package_name = "gradio-i18n"
 
-subprocess.check_call([
-    sys.executable,
-    "-m",
-    "pip",
-    "install",
-    package_name,
-])  # Uncomment if gradio-i18n is not installed in modelscope studio
+# Check if gradio-i18n is already installed, only install if not present
+try:
+    import gradio_i18n
+
+    print(f"{package_name} is already installed")
+except ImportError:
+    print(f"{package_name} not found, installing...")
+    subprocess.check_call([
+        sys.executable,
+        "-m",
+        "pip",
+        "install",
+        package_name,
+    ])
+
 from gradio_i18n import Translate
 from gradio_i18n import gettext as _
 
