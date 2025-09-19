@@ -67,6 +67,11 @@ recipe_names = list(all_recipes.keys())
 # --- Core Logic ---
 def get_cookers_positions(recipes: List[Recipe]) -> Dict[str, int]:
     """Get positions for all required cookers."""
+    if recipes[0].station == "dessert":
+        return {
+            "dessert_oven": 0,
+            "cooling_plate": 1,
+        }  # Fixed positions for dessert station
     cookers = list(
         dict.fromkeys(cooker for recipe in recipes for cooker in recipe.cookers_layout)
     )
