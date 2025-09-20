@@ -18,7 +18,6 @@ jobs:
           git lfs install
           git lfs fetch
           git lfs checkout
-          
       - name: Push to ModelScope Studio
         env:
           MODELSCOPE_TOKEN: ${{ secrets.MS_TOKEN }}
