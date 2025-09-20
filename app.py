@@ -134,7 +134,7 @@ def add_cooker_icons_to_ingredient_image(
             break  # Safety check in case we have more icons than positions
 
         try:
-            icon_path = IMAGE_DIR / f"icon-{cooker}.png"
+            icon_path = IMAGE_DIR / f"icon-{cooker}.jpg"
             if icon_path.exists():
                 icon = Image.open(icon_path).resize(icon_size)
                 # Paste the icon with transparency
