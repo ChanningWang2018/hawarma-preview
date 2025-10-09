@@ -1,5 +1,5 @@
 ---
-# For detailed documentation, see https://modelscope.cn/docs/%E5%88%9B%E7%A9%BA%E9%97%B4%E5%8D%A1%E7%89%87
+# For detailed documentation, see https://modelscope.cn/docs/space-cards
 domain: # Domain: cv/nlp/audio/multi-modal/AutoML
 # - cv
 tags: # Custom tags
@@ -37,7 +37,7 @@ The results are displayed in two forms: one is JSON, and the other is a combined
 If you need to add new recipes, you need to modify three parts:
 - recipes.json: Add new recipe information
 - translation.yaml: Add new recipe name translations
-- images/: 创建一个recipe.slug的同名目录，目录下Add PNG files with the same name as the new recipe slug for recipe selection (355x355 or 395x395), add files named "order-{recipe.slug}.png" for result display (275x255). If there are new ingredients, add PNG files with the same name (107x107), which need to correspond to the names in recipes.json. 
-新cookers和新condiments直接存放在images/目录下，方便复用。
+- images/: Create a directory with the same name as recipe.slug, and add PNG files with the same name as the new recipe slug for recipe selection (355x355 or 395x395), add files named "order-{recipe.slug}.png" for result display (275x255). If there are new ingredients, add PNG files with the same name (107x107), which need to correspond to the names in recipes.json.
+New cookers and condiments are stored directly in the images/ directory for easy reuse.
 
 If you modify the data structure of recipes.json, you also need to modify the corresponding parts of the Recipe class in app.py.
