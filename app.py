@@ -175,10 +175,12 @@ def create_layout_image(
             img_path = IMAGE_DIR / f"{recipe.slug}/order-{recipe.slug}.png"
             if not img_path.exists():
                 # Fallback or just skip if not found
-                print(
-                    f"Warning: Order image for '{recipe.slug}' not found at {img_path}"
-                )
-                continue
+                img_path = IMAGE_DIR / f"order-{recipe.slug}.png"
+                if not img_path.exists():
+                    print(
+                        f"Warning: Order image for '{recipe.slug}' not found at {img_path}"
+                    )
+                    continue
             icon = Image.open(img_path).resize(ICON_SIZE)
             x = order_start_x + (idx * ICON_SIZE[0])
             canvas.paste(icon, (x, order_y), icon if icon.mode == "RGBA" else None)
