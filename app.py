@@ -3,6 +3,7 @@ import json
 import subprocess
 import sys
 from pathlib import Path
+import re
 from typing import Dict, List
 
 import gradio as gr
@@ -58,6 +59,37 @@ def load_recipes() -> Dict[str, Recipe]:
     with open("recipes.json", "r", encoding="utf-8") as f:
         recipes_data = json.load(f)
     return {recipe["slug"]: Recipe(**recipe) for recipe in recipes_data}
+
+
+def load_credits() -> str:
+    """Loads and formats credits from CREDITS.md file."""
+    try:
+        with open("CREDITS.md", "r", encoding="utf-8") as f:
+            credits_content = f.read()
+
+        # Convert markdown links [text](url) to HTML <a href="url">text</a>
+        credits_html = re.sub(
+            r"\[([^\]]+)\]\(([^)]+)\)",
+            r'<a href="\2" target="_blank">\1</a>',
+            credits_content,
+        )
+
+        # Convert markdown headers to bold text
+        credits_html = re.sub(
+            r"^# (.+)$", r"<strong>\1</strong>", credits_html, flags=re.MULTILINE
+        )
+        credits_html = re.sub(
+            r"^## (.+)$", r"<strong>\1</strong>", credits_html, flags=re.MULTILINE
+        )
+
+        # Convert line breaks to HTML line breaks
+        credits_html = credits_html.replace("\n", "<br>")
+
+        return credits_html
+    except FileNotFoundError:
+        return "Credits file not found."
+    except Exception as e:
+        return f"Error loading credits: {str(e)}"
 
 
 all_recipes = load_recipes()
@@ -411,6 +443,11 @@ def create_ui():
                     cooker_output = gr.JSON(label="Cooker Positions")
                     ingredient_output = gr.JSON(label="Ingredient Positions")
                     condiment_output = gr.JSON(label="Condiment Positions")
+
+            gr.Markdown("---")  # Add a separator line
+
+            with gr.Accordion("Credits & References", open=False):
+                credits_html = gr.HTML(load_credits())
 
             # Event handlers
             lang.change(
