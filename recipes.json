@@ -398,5 +398,15 @@
     "cookers_layout": ["dessert_oven"],
     "cook_durations": [5.0],
     "condiments": ["sunkissed_lemon", "elderberry_liqueur"]
+  },
+  {
+    "slug": "the_founders_feast",
+    "name": "The Founders Feast",
+    "station": "gastronome",
+    "raw_ingredients": ["oathborne_dew", "roasting_chicken"],
+    "cookers": ["oven", "grill"],
+    "cookers_layout": ["grill", "oven"],
+    "cook_durations": [3.0, 3.0],
+    "condiments": ["hearthspice", "elderberry_liqueur"]
   }
 ]
