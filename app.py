@@ -272,7 +272,8 @@ def create_layout_image(
 
             # Check if this ingredient needs multiple cookers
             if (
-                ingredient in ingredient_cookers
+                recipe.station != "dessert"  # Skip for dessert station
+                and ingredient in ingredient_cookers
                 and len(ingredient_cookers[ingredient]) > 1
             ):
                 # Get all cookers except the first one (since it's already shown in the image)
