@@ -90,6 +90,16 @@
     "condiments": ["midsummer_onion", "acacia_honey"]
   },
   {
+    "slug": "holiday_gingerbread",
+    "name": "Holiday Gingerbread",
+    "station": "dessert",
+    "raw_ingredients": ["cultured_butter", "sparkling_sugar"],
+    "cookers": ["dessert_oven"],
+    "cookers_layout": ["dessert_oven"],
+    "cook_durations": [4.0],
+    "condiments": ["buttermilk_cream", "fleur_de_sel"]
+  },
+  {
     "slug": "mooncake_fig",
     "name": "Mooncake (Fig)",
     "station": "dessert",
