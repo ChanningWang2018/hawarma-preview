@@ -3,420 +3,1005 @@
     "slug": "gilded_shore_risotto",
     "name": "Gilded Shore Risotto",
     "station": "gastronome",
-    "raw_ingredients": ["clearwater_fish", "creamfield_rice"],
-    "cookers": ["oven", "pot"],
-    "cookers_layout": ["oven", "pot"],
-    "cook_durations": [3.0, 2.0],
-    "condiments": ["buttermilk_cream", "midsummer_onion"]
+    "raw_ingredients": [
+      "clearwater_fish",
+      "creamfield_rice"
+    ],
+    "cookers": [
+      "oven",
+      "pot"
+    ],
+    "cookers_layout": [
+      "oven",
+      "pot"
+    ],
+    "cook_durations": [
+      3.0,
+      2.0
+    ],
+    "condiments": [
+      "buttermilk_cream",
+      "midsummer_onion"
+    ]
+  },
+  {
+    "slug": "braised_new_year_fish",
+    "name": "Braised New Year Fish",
+    "station": "gastronome",
+    "raw_ingredients": [
+      "clearwater_fish"
+    ],
+    "cookers": [
+      "skillet"
+    ],
+    "cookers_layout": [
+      "skillet"
+    ],
+    "cook_durations": [
+      3.0
+    ],
+    "condiments": [
+      "hearthspice",
+      "acacia_honey"
+    ]
   },
   {
     "slug": "farmstead_feast_roast",
     "name": "Farmstead Feast Roast",
     "station": "gastronome",
-    "raw_ingredients": ["farmstead_pork"],
-    "cookers": ["oven"],
-    "cookers_layout": ["oven"],
-    "cook_durations": [4.0],
-    "condiments": ["sunkissed_lemon", "hearthspice"]
+    "raw_ingredients": [
+      "farmstead_pork"
+    ],
+    "cookers": [
+      "oven"
+    ],
+    "cookers_layout": [
+      "oven"
+    ],
+    "cook_durations": [
+      4.0
+    ],
+    "condiments": [
+      "sunkissed_lemon",
+      "hearthspice"
+    ]
+  },
+  {
+    "slug": "new_year_jiaozi",
+    "name": "New Year Jiaozi",
+    "station": "gastronome",
+    "raw_ingredients": [
+      "dough_wrappers",
+      "tender_lamb"
+    ],
+    "cookers": [
+      "oven",
+      "pot"
+    ],
+    "cookers_layout": [
+      "oven",
+      "pot"
+    ],
+    "cook_durations": [
+      3.0,
+      2.0
+    ],
+    "condiments": [
+      "hearthspice",
+      "fleur_de_sel"
+    ]
   },
   {
     "slug": "woodland_mushroom_risotto",
     "name": "Woodland Mushroom Risotto",
     "station": "gastronome",
-    "raw_ingredients": ["wild_mushroom", "creamfield_rice"],
-    "cookers": ["skillet", "pot"],
-    "cookers_layout": ["skillet", "pot"],
-    "cook_durations": [2.0, 2.0],
-    "condiments": ["elderberry_liqueur", "hearthspice"]
+    "raw_ingredients": [
+      "wild_mushroom",
+      "creamfield_rice"
+    ],
+    "cookers": [
+      "skillet",
+      "pot"
+    ],
+    "cookers_layout": [
+      "skillet",
+      "pot"
+    ],
+    "cook_durations": [
+      2.0,
+      2.0
+    ],
+    "condiments": [
+      "elderberry_liqueur",
+      "hearthspice"
+    ]
   },
   {
     "slug": "braised_venison_stew",
     "name": "Braised Venison Stew",
     "station": "gastronome",
-    "raw_ingredients": ["forest_venison", "blanquette_fig"],
-    "cookers": ["pot", "skillet"],
-    "cookers_layout": ["skillet", "pot"],
-    "cook_durations": [4.0, 3.0],
-    "condiments": ["elderberry_liqueur", "paleleaf_laurel"]
+    "raw_ingredients": [
+      "forest_venison",
+      "blanquette_fig"
+    ],
+    "cookers": [
+      "pot",
+      "skillet"
+    ],
+    "cookers_layout": [
+      "skillet",
+      "pot"
+    ],
+    "cook_durations": [
+      4.0,
+      3.0
+    ],
+    "condiments": [
+      "elderberry_liqueur",
+      "paleleaf_laurel"
+    ]
   },
   {
     "slug": "hearty_custard_pie",
     "name": "Hearty Custard Pie",
     "station": "gastronome",
-    "raw_ingredients": ["hearty_egg"],
-    "cookers": ["oven"],
-    "cookers_layout": ["oven"],
-    "cook_durations": [3.0],
-    "condiments": ["buttermilk_cream", "acacia_honey"]
+    "raw_ingredients": [
+      "hearty_egg"
+    ],
+    "cookers": [
+      "oven"
+    ],
+    "cookers_layout": [
+      "oven"
+    ],
+    "cook_durations": [
+      3.0
+    ],
+    "condiments": [
+      "buttermilk_cream",
+      "acacia_honey"
+    ]
   },
   {
     "slug": "paleleaf_meat_roll",
     "name": "Paleleaf Meat Roll",
     "station": "gastronome",
-    "raw_ingredients": ["succulent_cut", "blanquette_fig"],
-    "cookers": ["grill", "skillet"],
-    "cookers_layout": ["grill", "skillet"],
-    "cook_durations": [2.0, 3.0],
-    "condiments": ["paleleaf_laurel", "midsummer_onion"]
+    "raw_ingredients": [
+      "succulent_cut",
+      "blanquette_fig"
+    ],
+    "cookers": [
+      "grill",
+      "skillet"
+    ],
+    "cookers_layout": [
+      "grill",
+      "skillet"
+    ],
+    "cook_durations": [
+      2.0,
+      3.0
+    ],
+    "condiments": [
+      "paleleaf_laurel",
+      "midsummer_onion"
+    ]
   },
   {
     "slug": "saltbaked_shrimp",
     "name": "Saltbaked Shrimp",
     "station": "gastronome",
-    "raw_ingredients": ["shoreline_shrimp"],
-    "cookers": ["grill"],
-    "cookers_layout": ["grill"],
-    "cook_durations": [4.0],
-    "condiments": ["sunkissed_lemon", "fleur_de_sel"]
+    "raw_ingredients": [
+      "shoreline_shrimp"
+    ],
+    "cookers": [
+      "grill"
+    ],
+    "cookers_layout": [
+      "grill"
+    ],
+    "cook_durations": [
+      4.0
+    ],
+    "condiments": [
+      "sunkissed_lemon",
+      "fleur_de_sel"
+    ]
   },
   {
     "slug": "dome_figue_miel",
     "name": "Dome Figue Miel",
     "station": "dessert",
-    "raw_ingredients": ["blanquette_fig", "sparkling_sugar"],
-    "cookers": ["dessert_oven"],
-    "cookers_layout": ["dessert_oven"],
-    "cook_durations": [3.0],
-    "condiments": ["acacia_honey", "elderberry_liqueur"]
+    "raw_ingredients": [
+      "blanquette_fig",
+      "sparkling_sugar"
+    ],
+    "cookers": [
+      "dessert_oven"
+    ],
+    "cookers_layout": [
+      "dessert_oven"
+    ],
+    "cook_durations": [
+      3.0
+    ],
+    "condiments": [
+      "acacia_honey",
+      "elderberry_liqueur"
+    ]
   },
   {
     "slug": "hearthroast_chicken",
     "name": "Hearthroast Chicken",
     "station": "gastronome",
-    "raw_ingredients": ["roasting_chicken"],
-    "cookers": ["oven"],
-    "cookers_layout": ["oven"],
-    "cook_durations": [3.0],
-    "condiments": ["midsummer_onion", "acacia_honey"]
+    "raw_ingredients": [
+      "roasting_chicken"
+    ],
+    "cookers": [
+      "oven"
+    ],
+    "cookers_layout": [
+      "oven"
+    ],
+    "cook_durations": [
+      3.0
+    ],
+    "condiments": [
+      "midsummer_onion",
+      "acacia_honey"
+    ]
   },
   {
     "slug": "holiday_gingerbread",
     "name": "Holiday Gingerbread",
     "station": "dessert",
-    "raw_ingredients": ["cultured_butter", "sparkling_sugar"],
-    "cookers": ["dessert_oven"],
-    "cookers_layout": ["dessert_oven"],
-    "cook_durations": [4.0],
-    "condiments": ["buttermilk_cream", "fleur_de_sel"]
+    "raw_ingredients": [
+      "cultured_butter",
+      "sparkling_sugar"
+    ],
+    "cookers": [
+      "dessert_oven"
+    ],
+    "cookers_layout": [
+      "dessert_oven"
+    ],
+    "cook_durations": [
+      4.0
+    ],
+    "condiments": [
+      "buttermilk_cream",
+      "fleur_de_sel"
+    ]
   },
   {
     "slug": "mooncake_fig",
     "name": "Mooncake (Fig)",
     "station": "dessert",
-    "raw_ingredients": ["golden_moon_flour", "blanquette_fig"],
-    "cookers": ["dessert_oven"],
-    "cookers_layout": ["dessert_oven"],
-    "cook_durations": [4.0],
-    "condiments": ["paleleaf_laurel", "granulated_sugar"]
+    "raw_ingredients": [
+      "golden_moon_flour",
+      "blanquette_fig"
+    ],
+    "cookers": [
+      "dessert_oven"
+    ],
+    "cookers_layout": [
+      "dessert_oven"
+    ],
+    "cook_durations": [
+      4.0
+    ],
+    "condiments": [
+      "paleleaf_laurel",
+      "granulated_sugar"
+    ]
   },
   {
     "slug": "mooncake_berry",
     "name": "Mooncake (Berry)",
     "station": "dessert",
-    "raw_ingredients": ["golden_moon_flour", "brambleberry"],
-    "cookers": ["dessert_oven"],
-    "cookers_layout": ["dessert_oven"],
-    "cook_durations": [4.0],
-    "condiments": ["paleleaf_laurel", "granulated_sugar"]
+    "raw_ingredients": [
+      "golden_moon_flour",
+      "brambleberry"
+    ],
+    "cookers": [
+      "dessert_oven"
+    ],
+    "cookers_layout": [
+      "dessert_oven"
+    ],
+    "cook_durations": [
+      4.0
+    ],
+    "condiments": [
+      "paleleaf_laurel",
+      "granulated_sugar"
+    ]
   },
   {
     "slug": "mooncake_rice",
     "name": "Mooncake (Rice)",
     "station": "dessert",
-    "raw_ingredients": ["golden_moon_flour", "creamfield_rice"],
-    "cookers": ["dessert_oven"],
-    "cookers_layout": ["dessert_oven"],
-    "cook_durations": [4.0],
-    "condiments": ["paleleaf_laurel", "granulated_sugar"]
+    "raw_ingredients": [
+      "golden_moon_flour",
+      "creamfield_rice"
+    ],
+    "cookers": [
+      "dessert_oven"
+    ],
+    "cookers_layout": [
+      "dessert_oven"
+    ],
+    "cook_durations": [
+      4.0
+    ],
+    "condiments": [
+      "paleleaf_laurel",
+      "granulated_sugar"
+    ]
   },
   {
     "slug": "mooncake_crab_roe",
     "name": "Mooncake (Crab Roe)",
     "station": "dessert",
-    "raw_ingredients": ["golden_moon_flour", "golden_crab_roe"],
-    "cookers": ["dessert_oven"],
-    "cookers_layout": ["dessert_oven"],
-    "cook_durations": [4.0],
-    "condiments": ["paleleaf_laurel", "granulated_sugar"]
+    "raw_ingredients": [
+      "golden_moon_flour",
+      "golden_crab_roe"
+    ],
+    "cookers": [
+      "dessert_oven"
+    ],
+    "cookers_layout": [
+      "dessert_oven"
+    ],
+    "cook_durations": [
+      4.0
+    ],
+    "condiments": [
+      "paleleaf_laurel",
+      "granulated_sugar"
+    ]
   },
   {
     "slug": "mooncake_beef",
     "name": "Mooncake (Beef)",
     "station": "dessert",
-    "raw_ingredients": ["golden_moon_flour", "prime_cut_beef"],
-    "cookers": ["dessert_oven"],
-    "cookers_layout": ["dessert_oven"],
-    "cook_durations": [4.0],
-    "condiments": ["paleleaf_laurel", "granulated_sugar"]
+    "raw_ingredients": [
+      "golden_moon_flour",
+      "prime_cut_beef"
+    ],
+    "cookers": [
+      "dessert_oven"
+    ],
+    "cookers_layout": [
+      "dessert_oven"
+    ],
+    "cook_durations": [
+      4.0
+    ],
+    "condiments": [
+      "paleleaf_laurel",
+      "granulated_sugar"
+    ]
   },
   {
     "slug": "mooncake_cocoa",
     "name": "Mooncake (Cocoa)",
     "station": "dessert",
-    "raw_ingredients": ["golden_moon_flour", "roasted_cocoa"],
-    "cookers": ["dessert_oven"],
-    "cookers_layout": ["dessert_oven"],
-    "cook_durations": [4.0],
-    "condiments": ["paleleaf_laurel", "granulated_sugar"]
+    "raw_ingredients": [
+      "golden_moon_flour",
+      "roasted_cocoa"
+    ],
+    "cookers": [
+      "dessert_oven"
+    ],
+    "cookers_layout": [
+      "dessert_oven"
+    ],
+    "cook_durations": [
+      4.0
+    ],
+    "condiments": [
+      "paleleaf_laurel",
+      "granulated_sugar"
+    ]
   },
   {
     "slug": "mooncake_sparkling_sugar",
     "name": "Mooncake (Sparkling Sugar)",
     "station": "dessert",
-    "raw_ingredients": ["golden_moon_flour", "sparkling_sugar"],
-    "cookers": ["dessert_oven"],
-    "cookers_layout": ["dessert_oven"],
-    "cook_durations": [4.0],
-    "condiments": ["paleleaf_laurel", "granulated_sugar"]
+    "raw_ingredients": [
+      "golden_moon_flour",
+      "sparkling_sugar"
+    ],
+    "cookers": [
+      "dessert_oven"
+    ],
+    "cookers_layout": [
+      "dessert_oven"
+    ],
+    "cook_durations": [
+      4.0
+    ],
+    "condiments": [
+      "paleleaf_laurel",
+      "granulated_sugar"
+    ]
   },
   {
     "slug": "mooncake_thyme",
     "name": "Mooncake (Thyme)",
     "station": "dessert",
-    "raw_ingredients": ["golden_moon_flour", "wildbloom_thyme"],
-    "cookers": ["dessert_oven"],
-    "cookers_layout": ["dessert_oven"],
-    "cook_durations": [4.0],
-    "condiments": ["paleleaf_laurel", "granulated_sugar"]
+    "raw_ingredients": [
+      "golden_moon_flour",
+      "wildbloom_thyme"
+    ],
+    "cookers": [
+      "dessert_oven"
+    ],
+    "cookers_layout": [
+      "dessert_oven"
+    ],
+    "cook_durations": [
+      4.0
+    ],
+    "condiments": [
+      "paleleaf_laurel",
+      "granulated_sugar"
+    ]
   },
   {
     "slug": "simple_seared_scallops",
     "name": "Simple Seared Scallops",
     "station": "gastronome",
-    "raw_ingredients": ["whiteshore_scallop", "vining_marjoram"],
-    "cookers": ["grill", "grill"],
-    "cookers_layout": ["grill"],
-    "cook_durations": [2.0, 4.0],
-    "condiments": ["fleur_de_sel", "sunkissed_lemon"]
+    "raw_ingredients": [
+      "whiteshore_scallop",
+      "vining_marjoram"
+    ],
+    "cookers": [
+      "grill",
+      "grill"
+    ],
+    "cookers_layout": [
+      "grill"
+    ],
+    "cook_durations": [
+      2.0,
+      4.0
+    ],
+    "condiments": [
+      "fleur_de_sel",
+      "sunkissed_lemon"
+    ]
   },
   {
     "slug": "snow_skin_mooncake_fig",
     "name": "Snow Skin Mooncake (Fig)",
     "station": "dessert",
-    "raw_ingredients": ["snowy_rice_flour", "blanquette_fig"],
-    "cookers": ["cooling_plate"],
-    "cookers_layout": ["cooling_plate"],
-    "cook_durations": [4.0],
-    "condiments": ["paleleaf_laurel", "granulated_sugar"]
+    "raw_ingredients": [
+      "snowy_rice_flour",
+      "blanquette_fig"
+    ],
+    "cookers": [
+      "cooling_plate"
+    ],
+    "cookers_layout": [
+      "cooling_plate"
+    ],
+    "cook_durations": [
+      4.0
+    ],
+    "condiments": [
+      "paleleaf_laurel",
+      "granulated_sugar"
+    ]
   },
   {
     "slug": "snow_skin_mooncake_berry",
     "name": "Snow Skin Mooncake (Berry)",
     "station": "dessert",
-    "raw_ingredients": ["snowy_rice_flour", "brambleberry"],
-    "cookers": ["cooling_plate"],
-    "cookers_layout": ["cooling_plate"],
-    "cook_durations": [4.0],
-    "condiments": ["paleleaf_laurel", "granulated_sugar"]
+    "raw_ingredients": [
+      "snowy_rice_flour",
+      "brambleberry"
+    ],
+    "cookers": [
+      "cooling_plate"
+    ],
+    "cookers_layout": [
+      "cooling_plate"
+    ],
+    "cook_durations": [
+      4.0
+    ],
+    "condiments": [
+      "paleleaf_laurel",
+      "granulated_sugar"
+    ]
   },
   {
     "slug": "snow_skin_mooncake_rice",
     "name": "Snow Skin Mooncake (Rice)",
     "station": "dessert",
-    "raw_ingredients": ["snowy_rice_flour", "creamfield_rice"],
-    "cookers": ["cooling_plate"],
-    "cookers_layout": ["cooling_plate"],
-    "cook_durations": [4.0],
-    "condiments": ["paleleaf_laurel", "granulated_sugar"]
+    "raw_ingredients": [
+      "snowy_rice_flour",
+      "creamfield_rice"
+    ],
+    "cookers": [
+      "cooling_plate"
+    ],
+    "cookers_layout": [
+      "cooling_plate"
+    ],
+    "cook_durations": [
+      4.0
+    ],
+    "condiments": [
+      "paleleaf_laurel",
+      "granulated_sugar"
+    ]
   },
   {
     "slug": "snow_skin_mooncake_crab_roe",
     "name": "Snow Skin Mooncake (Crab Roe)",
     "station": "dessert",
-    "raw_ingredients": ["snowy_rice_flour", "golden_crab_roe"],
-    "cookers": ["cooling_plate"],
-    "cookers_layout": ["cooling_plate"],
-    "cook_durations": [4.0],
-    "condiments": ["paleleaf_laurel", "granulated_sugar"]
+    "raw_ingredients": [
+      "snowy_rice_flour",
+      "golden_crab_roe"
+    ],
+    "cookers": [
+      "cooling_plate"
+    ],
+    "cookers_layout": [
+      "cooling_plate"
+    ],
+    "cook_durations": [
+      4.0
+    ],
+    "condiments": [
+      "paleleaf_laurel",
+      "granulated_sugar"
+    ]
   },
   {
     "slug": "snow_skin_mooncake_beef",
     "name": "Snow Skin Mooncake (Beef)",
     "station": "dessert",
-    "raw_ingredients": ["snowy_rice_flour", "prime_cut_beef"],
-    "cookers": ["cooling_plate"],
-    "cookers_layout": ["cooling_plate"],
-    "cook_durations": [4.0],
-    "condiments": ["paleleaf_laurel", "granulated_sugar"]
+    "raw_ingredients": [
+      "snowy_rice_flour",
+      "prime_cut_beef"
+    ],
+    "cookers": [
+      "cooling_plate"
+    ],
+    "cookers_layout": [
+      "cooling_plate"
+    ],
+    "cook_durations": [
+      4.0
+    ],
+    "condiments": [
+      "paleleaf_laurel",
+      "granulated_sugar"
+    ]
   },
   {
     "slug": "snow_skin_mooncake_cocoa",
     "name": "Snow Skin Mooncake (Cocoa)",
     "station": "dessert",
-    "raw_ingredients": ["snowy_rice_flour", "roasted_cocoa"],
-    "cookers": ["cooling_plate"],
-    "cookers_layout": ["cooling_plate"],
-    "cook_durations": [4.0],
-    "condiments": ["paleleaf_laurel", "granulated_sugar"]
+    "raw_ingredients": [
+      "snowy_rice_flour",
+      "roasted_cocoa"
+    ],
+    "cookers": [
+      "cooling_plate"
+    ],
+    "cookers_layout": [
+      "cooling_plate"
+    ],
+    "cook_durations": [
+      4.0
+    ],
+    "condiments": [
+      "paleleaf_laurel",
+      "granulated_sugar"
+    ]
   },
   {
     "slug": "snow_skin_mooncake_sparkling_sugar",
     "name": "Snow Skin Mooncake (Sparkling Sugar)",
     "station": "dessert",
-    "raw_ingredients": ["snowy_rice_flour", "sparkling_sugar"],
-    "cookers": ["cooling_plate"],
-    "cookers_layout": ["cooling_plate"],
-    "cook_durations": [4.0],
-    "condiments": ["paleleaf_laurel", "granulated_sugar"]
+    "raw_ingredients": [
+      "snowy_rice_flour",
+      "sparkling_sugar"
+    ],
+    "cookers": [
+      "cooling_plate"
+    ],
+    "cookers_layout": [
+      "cooling_plate"
+    ],
+    "cook_durations": [
+      4.0
+    ],
+    "condiments": [
+      "paleleaf_laurel",
+      "granulated_sugar"
+    ]
   },
   {
     "slug": "snow_skin_mooncake_thyme",
     "name": "Snow Skin Mooncake (Thyme)",
     "station": "dessert",
-    "raw_ingredients": ["snowy_rice_flour", "wildbloom_thyme"],
-    "cookers": ["cooling_plate"],
-    "cookers_layout": ["cooling_plate"],
-    "cook_durations": [4.0],
-    "condiments": ["paleleaf_laurel", "granulated_sugar"]
+    "raw_ingredients": [
+      "snowy_rice_flour",
+      "wildbloom_thyme"
+    ],
+    "cookers": [
+      "cooling_plate"
+    ],
+    "cookers_layout": [
+      "cooling_plate"
+    ],
+    "cook_durations": [
+      4.0
+    ],
+    "condiments": [
+      "paleleaf_laurel",
+      "granulated_sugar"
+    ]
   },
   {
     "slug": "wild_herb_tomahawk",
     "name": "Wild Herb Tomahawk",
     "station": "gastronome",
-    "raw_ingredients": ["prime_cut_beef", "vining_marjoram"],
-    "cookers": ["skillet", "grill"],
-    "cookers_layout": ["grill", "skillet"],
-    "cook_durations": [5.0, 4.0],
-    "condiments": ["hearthspice", "fleur_de_sel"]
+    "raw_ingredients": [
+      "prime_cut_beef",
+      "vining_marjoram"
+    ],
+    "cookers": [
+      "skillet",
+      "grill"
+    ],
+    "cookers_layout": [
+      "grill",
+      "skillet"
+    ],
+    "cook_durations": [
+      5.0,
+      4.0
+    ],
+    "condiments": [
+      "hearthspice",
+      "fleur_de_sel"
+    ]
   },
   {
     "slug": "honey_glazed_wings",
     "name": "Honey-Glazed Wings",
     "station": "gastronome",
-    "raw_ingredients": ["plump_wing"],
-    "cookers": ["grill"],
-    "cookers_layout": ["grill"],
-    "cook_durations": [4.0],
-    "condiments": ["granulated_sugar", "acacia_honey"]
+    "raw_ingredients": [
+      "plump_wing"
+    ],
+    "cookers": [
+      "grill"
+    ],
+    "cookers_layout": [
+      "grill"
+    ],
+    "cook_durations": [
+      4.0
+    ],
+    "condiments": [
+      "granulated_sugar",
+      "acacia_honey"
+    ]
   },
   {
     "slug": "velvet_tiramisu",
     "name": "Velvet Tiramisu",
     "station": "dessert",
-    "raw_ingredients": ["hearty_egg", "roasted_cocoa"],
-    "cookers": ["dessert_oven"],
-    "cookers_layout": ["dessert_oven"],
-    "cook_durations": [3.0],
-    "condiments": ["buttermilk_cream", "sunkissed_lemon"]
+    "raw_ingredients": [
+      "hearty_egg",
+      "roasted_cocoa"
+    ],
+    "cookers": [
+      "dessert_oven"
+    ],
+    "cookers_layout": [
+      "dessert_oven"
+    ],
+    "cook_durations": [
+      3.0
+    ],
+    "condiments": [
+      "buttermilk_cream",
+      "sunkissed_lemon"
+    ]
   },
   {
     "slug": "cocoa_berry_bliss",
     "name": "Cocoa-Berry Bliss",
     "station": "dessert",
-    "raw_ingredients": ["brambleberry", "roasted_cocoa"],
-    "cookers": ["cooling_plate"],
-    "cookers_layout": ["cooling_plate"],
-    "cook_durations": [4.0],
-    "condiments": ["granulated_sugar", "buttermilk_cream"]
+    "raw_ingredients": [
+      "brambleberry",
+      "roasted_cocoa"
+    ],
+    "cookers": [
+      "cooling_plate"
+    ],
+    "cookers_layout": [
+      "cooling_plate"
+    ],
+    "cook_durations": [
+      4.0
+    ],
+    "condiments": [
+      "granulated_sugar",
+      "buttermilk_cream"
+    ]
   },
   {
     "slug": "midsummer_lamb_roast",
     "name": "Midsummer Lamb Roast",
     "station": "gastronome",
-    "raw_ingredients": ["tender_lamb"],
-    "cookers": ["oven"],
-    "cookers_layout": ["oven"],
-    "cook_durations": [4.0],
-    "condiments": ["acacia_honey", "hearthspice"]
+    "raw_ingredients": [
+      "tender_lamb"
+    ],
+    "cookers": [
+      "oven"
+    ],
+    "cookers_layout": [
+      "oven"
+    ],
+    "cook_durations": [
+      4.0
+    ],
+    "condiments": [
+      "acacia_honey",
+      "hearthspice"
+    ]
   },
   {
     "slug": "deepwater_ink_pasta",
     "name": "Deepwater Ink Pasta",
     "station": "gastronome",
-    "raw_ingredients": ["deepwater_tentacle", "pliant_pasta"],
-    "cookers": ["oven", "pot"],
-    "cookers_layout": ["oven", "pot"],
-    "cook_durations": [5.0, 3.0],
-    "condiments": ["elderberry_liqueur", "paleleaf_laurel"]
+    "raw_ingredients": [
+      "deepwater_tentacle",
+      "pliant_pasta"
+    ],
+    "cookers": [
+      "oven",
+      "pot"
+    ],
+    "cookers_layout": [
+      "oven",
+      "pot"
+    ],
+    "cook_durations": [
+      5.0,
+      3.0
+    ],
+    "condiments": [
+      "elderberry_liqueur",
+      "paleleaf_laurel"
+    ]
   },
   {
     "slug": "golden_cream_pasta",
     "name": "Golden Cream Pasta",
     "station": "gastronome",
-    "raw_ingredients": ["golden_crab_roe", "pliant_pasta"],
-    "cookers": ["skillet", "pot"],
-    "cookers_layout": ["skillet", "pot"],
-    "cook_durations": [3.0, 3.0],
-    "condiments": ["buttermilk_cream", "acacia_honey"]
+    "raw_ingredients": [
+      "golden_crab_roe",
+      "pliant_pasta"
+    ],
+    "cookers": [
+      "skillet",
+      "pot"
+    ],
+    "cookers_layout": [
+      "skillet",
+      "pot"
+    ],
+    "cook_durations": [
+      3.0,
+      3.0
+    ],
+    "condiments": [
+      "buttermilk_cream",
+      "acacia_honey"
+    ]
   },
   {
     "slug": "wildbloom_salad",
     "name": "Wildbloom Salad",
     "station": "dessert",
-    "raw_ingredients": ["blanquette_fig", "wildbloom_thyme"],
-    "cookers": ["cooling_plate"],
-    "cookers_layout": ["cooling_plate"],
-    "cook_durations": [4.0],
-    "condiments": ["granulated_sugar", "sunkissed_lemon"]
+    "raw_ingredients": [
+      "blanquette_fig",
+      "wildbloom_thyme"
+    ],
+    "cookers": [
+      "cooling_plate"
+    ],
+    "cookers_layout": [
+      "cooling_plate"
+    ],
+    "cook_durations": [
+      4.0
+    ],
+    "condiments": [
+      "granulated_sugar",
+      "sunkissed_lemon"
+    ]
   },
   {
     "slug": "charred_mystery_steak",
     "name": "Charred Mystery Steak",
     "station": "gastronome",
-    "raw_ingredients": ["mystery_meat", "charred_cinnamon_tree"],
-    "cookers": ["skillet", "grill"],
-    "cookers_layout": ["grill", "skillet"],
-    "cook_durations": [5.0, 4.0],
-    "condiments": ["fleur_de_sel", "hearthspice"]
+    "raw_ingredients": [
+      "mystery_meat",
+      "charred_cinnamon_tree"
+    ],
+    "cookers": [
+      "skillet",
+      "grill"
+    ],
+    "cookers_layout": [
+      "grill",
+      "skillet"
+    ],
+    "cook_durations": [
+      5.0,
+      4.0
+    ],
+    "condiments": [
+      "fleur_de_sel",
+      "hearthspice"
+    ]
   },
   {
     "slug": "cinnamon_seared_foie_gras",
     "name": "Cinnamon-Seared Foie Gras",
     "station": "gastronome",
-    "raw_ingredients": ["foie_gras", "charred_cinnamon_tree"],
-    "cookers": ["skillet", "pot"],
-    "cookers_layout": ["skillet", "pot"],
-    "cook_durations": [5.0, 4.0],
-    "condiments": ["midsummer_onion", "sunkissed_lemon"]
+    "raw_ingredients": [
+      "foie_gras",
+      "charred_cinnamon_tree"
+    ],
+    "cookers": [
+      "skillet",
+      "pot"
+    ],
+    "cookers_layout": [
+      "skillet",
+      "pot"
+    ],
+    "cook_durations": [
+      5.0,
+      4.0
+    ],
+    "condiments": [
+      "midsummer_onion",
+      "sunkissed_lemon"
+    ]
   },
   {
     "slug": "feast_of_courage_and_chivalry",
     "name": "Feast of Courage and Chivalry",
     "station": "gastronome",
-    "raw_ingredients": ["scorched_sunchaser_paw", "prime_cut_beef"],
-    "cookers": ["skillet", "pot"],
-    "cookers_layout": ["skillet", "pot"],
-    "cook_durations": [5.0, 4.0],
-    "condiments": ["sunkissed_lemon", "fleur_de_sel"]
+    "raw_ingredients": [
+      "scorched_sunchaser_paw",
+      "prime_cut_beef"
+    ],
+    "cookers": [
+      "skillet",
+      "pot"
+    ],
+    "cookers_layout": [
+      "skillet",
+      "pot"
+    ],
+    "cook_durations": [
+      5.0,
+      4.0
+    ],
+    "condiments": [
+      "sunkissed_lemon",
+      "fleur_de_sel"
+    ]
   },
   {
     "slug": "feast_of_cunning_and_ambition",
     "name": "Feast of Cunning and Ambition",
     "station": "gastronome",
-    "raw_ingredients": ["coiled_gold_brew", "hearty_egg"],
-    "cookers": ["grill", "pot"],
-    "cookers_layout": ["grill", "pot"],
-    "cook_durations": [5.0, 4.0],
-    "condiments": ["buttermilk_cream", "midsummer_onion"]
+    "raw_ingredients": [
+      "coiled_gold_brew",
+      "hearty_egg"
+    ],
+    "cookers": [
+      "grill",
+      "pot"
+    ],
+    "cookers_layout": [
+      "grill",
+      "pot"
+    ],
+    "cook_durations": [
+      5.0,
+      4.0
+    ],
+    "condiments": [
+      "buttermilk_cream",
+      "midsummer_onion"
+    ]
   },
   {
     "slug": "feast_of_loyalty_and_dedication",
     "name": "Feast of Loyalty and Dedication",
     "station": "gastronome",
-    "raw_ingredients": ["hearty_harvest_gravy", "clearwater_fish"],
-    "cookers": ["pot", "skillet"],
-    "cookers_layout": ["skillet", "pot"],
-    "cook_durations": [5.0, 4.0],
-    "condiments": ["sunkissed_lemon", "elderberry_liqueur"]
+    "raw_ingredients": [
+      "hearty_harvest_gravy",
+      "clearwater_fish"
+    ],
+    "cookers": [
+      "pot",
+      "skillet"
+    ],
+    "cookers_layout": [
+      "skillet",
+      "pot"
+    ],
+    "cook_durations": [
+      5.0,
+      4.0
+    ],
+    "condiments": [
+      "sunkissed_lemon",
+      "elderberry_liqueur"
+    ]
   },
   {
     "slug": "feast_of_wisdom_and_wit",
     "name": "Feast of Wisdom and Wit",
     "station": "dessert",
-    "raw_ingredients": ["curious_sapphire_gelee", "sparkling_sugar"],
-    "cookers": ["dessert_oven"],
-    "cookers_layout": ["dessert_oven"],
-    "cook_durations": [5.0],
-    "condiments": ["sunkissed_lemon", "elderberry_liqueur"]
+    "raw_ingredients": [
+      "curious_sapphire_gelee",
+      "sparkling_sugar"
+    ],
+    "cookers": [
+      "dessert_oven"
+    ],
+    "cookers_layout": [
+      "dessert_oven"
+    ],
+    "cook_durations": [
+      5.0
+    ],
+    "condiments": [
+      "sunkissed_lemon",
+      "elderberry_liqueur"
+    ]
   },
   {
     "slug": "the_founders_feast",
     "name": "The Founders Feast",
     "station": "gastronome",
-    "raw_ingredients": ["oathborne_dew", "roasting_chicken"],
-    "cookers": ["oven", "grill"],
-    "cookers_layout": ["grill", "oven"],
-    "cook_durations": [3.0, 3.0],
-    "condiments": ["hearthspice", "elderberry_liqueur"]
+    "raw_ingredients": [
+      "oathborne_dew",
+      "roasting_chicken"
+    ],
+    "cookers": [
+      "oven",
+      "grill"
+    ],
+    "cookers_layout": [
+      "grill",
+      "oven"
+    ],
+    "cook_durations": [
+      3.0,
+      3.0
+    ],
+    "condiments": [
+      "hearthspice",
+      "elderberry_liqueur"
+    ]
   }
 ]
