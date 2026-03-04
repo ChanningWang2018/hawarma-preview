@@ -76,10 +76,10 @@
     ],
     "cookers": [
       "pot",
-      "oven"
+      "grill"
     ],
     "cookers_layout": [
-      "oven",
+      "grill",
       "pot"
     ],
     "cook_durations": [
@@ -942,10 +942,10 @@
     ],
     "cookers": [
       "pot",
-      "skillet"
+      "grill"
     ],
     "cookers_layout": [
-      "skillet",
+      "grill",
       "pot"
     ],
     "cook_durations": [
