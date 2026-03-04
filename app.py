@@ -340,9 +340,16 @@ def update_gallery(selected_recipe_slugs: List[str]):
     for slug in selected_recipe_slugs:
         recipe = all_recipes.get(slug)
         if recipe:
-            img_path = IMAGE_DIR / f"{recipe.slug}.png"
+            img_path = IMAGE_DIR / f"{recipe.slug}/{recipe.slug}.png"
             if img_path.exists():
                 image_paths.append(str(img_path))
+            elif (IMAGE_DIR / f"{recipe.slug}.png").exists():
+                image_paths.append(str(IMAGE_DIR / f"{recipe.slug}.png"))
+            else:
+                img_path = IMAGE_DIR / f"{recipe.slug}.png"
+                print(
+                    f"Warning: Image for recipe '{recipe.slug}' not found at {img_path}"
+                )
     return image_paths
 
 
